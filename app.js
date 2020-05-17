@@ -1,18 +1,24 @@
-//practice with IIFEs
-(function (lastName) {
-  
-  var firstName = 'John';
-  console.log(firstName);
-  console.log(lastName);
-
-}('Doe'));
-
-var firstName = 'Jane';
-console.log(firstName);
-
 //practice with require() function
-// var greet = require('./greet.js');
-// greet();
+var greet = require('./greet');
+greet.english(); 
+greet.spanish(); 
+
+
+
+
+
+//practice with IIFEs
+// (function (lastName) {
+  
+//   var firstName = 'John';
+//   console.log(firstName);
+//   console.log(lastName);
+
+// }('Doe'));
+
+// var firstName = 'Jane';
+// console.log(firstName);
+
 
 // pass by value
 // function change(b) {

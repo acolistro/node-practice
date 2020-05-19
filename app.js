@@ -1,17 +1,63 @@
-var Emitter = require('./emitter');
+//practice with constructors and superconstructors
+var EventEmitter = require('events');
+var util = require('util');
 
-var emtr = new Emitter();
+function Greetr() {
+  this.greeting = 'Hello world!';
+}
 
-emtr.on('greet', function() {
-  console.log('Somewhere, someone said hello.');
+util.inherits(Greetr, EventEmitter);
+
+Greetr.prototype.greet = function() {
+  console.log(this.greeting);
+  this.emit('greet');
+}
+
+var greeter1 = new Greetr();
+
+greeter1.on('greet', function() {
+  console.log('Someone greeted');
 });
 
-emtr.on('greet', function() {
-  console.log('A greeting happened.');
-});
+greeter1.greet();
 
-console.log('Hello!');
-emtr.emit('greet');
+
+//practice with Object.create
+// var person = {
+//   firstname: '',
+//   lastname: '',
+//   greet: function() {
+//     return this.firstname + ' ' + this.lastname;
+//   }
+// }
+
+// var john = Object.create(person);
+// john.firstname = 'John';
+// john.lastname = 'Doe';
+
+// var jane = Object.create(person);
+// jane.firstname = 'Jane';
+// jane.lastname = 'Doe';
+
+// console.log(john.greet());
+// console.log(jane.greet());
+
+//practice with emitters
+// var Emitter = require('events');
+// var eventConfig = require('./config').events;
+
+// var emtr = new Emitter();
+
+// emtr.on(eventConfig.GREET, function() {
+//   console.log('Somewhere, someone said hello.');
+// });
+
+// emtr.on(eventConfig.GREET, function() {
+//   console.log('A greeting happened.');
+// });
+
+// console.log('Hello!');
+// emtr.emit(eventConfig.GREET);
 
 
 

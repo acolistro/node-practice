@@ -1,14 +1,39 @@
-//practice with .call and .apply
-var obj = {
-  name: 'John Doe',
-  greet: function() {
-    console.log(`Hello ${ this.name }`);
-  }
+//Inheriting from event emitter
+var EventEmitter = require('events');
+var util = require('util');
+
+function Greetr() {
+  EventEmitter.call(this);
+  this.greeting = 'Hello world!';
 }
 
-obj.greet();
-obj.greet.call({ name: 'Jane Doe'});
-obj.greet.apply({ name: 'Jane Doe'});
+util.inherits(Greetr, EventEmitter);
+
+Greetr.prototype.greet = function() {
+  console.log(this.greeting);
+  this.emit('greet');
+}
+
+var greeter1 = new Greetr();
+
+greeter1.on('greet', function() {
+  console.log('Someone greeted');
+});
+
+greeter1.greet();
+
+
+//practice with .call and .apply
+// var obj = {
+//   name: 'John Doe',
+//   greet: function() {
+//     console.log(`Hello ${ this.name }`);
+//   }
+// }
+
+// obj.greet();
+// obj.greet.call({ name: 'Jane Doe'});
+// obj.greet.apply({ name: 'Jane Doe'});
 
 //practice with template literals
 // var name = 'John Doe';

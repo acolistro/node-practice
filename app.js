@@ -1,24 +1,66 @@
+//object properties and methods
+var obj = {
+  greet: 'Hello'
+}
+
+console.log(obj.greet);
+console.log(obj['greet']);
+var prop = 'greet';
+console.log(obj[prop]);
+
+//functions and arrays
+var arr = [];
+
+arr.push(function() {
+  console.log('Hello world 1');
+});
+
+arr.push(function() {
+  console.log('Hello world 2');
+});
+
+arr.push(function() {
+  console.log('Hello world 3');
+});
+
+arr.forEach(function(item) {
+  item();
+});
+
+//utilities feature core module
+// var util = require('util');
+
+// var name = 'Lester';
+// var greeting = util.format('Hello, %s', name);
+// util.log(greeting);
+
+//exports v module.exports
+// var greet = require('./greet1');
+// var greet2 = require('./greet2');
+
+// greet2.greet();
+
 //Playing with the require function and objects
-var greet = require('./greet1');
-greet();
+// var greet = require('./greet1');
+// greet();
 
-var greet2 = require('./greet2').greet;
-greet2();
+// var greet2 = require('./greet2').greet;
+// greet2();
 
-var greet3 = require('./greet3');
-greet3.greet();
+// var greet3 = require('./greet3');
+// greet3.greet();
 
-greet3.greeting = 'Changed hello world';
+// greet3.greeting = 'Changed hello world';
 
-var greet3b = require('./greet3');
-greet3b.greet();
+// var greet3b = require('./greet3');
+// greet3b.greet();
 
-var Greet4 = require('./greet4');
-var grtr = new Greet4();
-grtr.greet();
+// var Greet4 = require('./greet4');
+// var grtr = new Greet4();
+// grtr.greet();
 
-var greet5 = require('./greet5').greet;
-greet5();
+// var greet5 = require('./greet5').greet;
+// greet5();
 
 
 

@@ -1,21 +1,46 @@
-var person = {
-  firstname: '',
-  lastname: '',
-  greet: function() {
-    return this.firstname + ' ' + this.lastname;
-  }
+//practice with constructors and superconstructors
+var EventEmitter = require('events');
+var util = require('util');
+
+function Greetr() {
+  this.greeting = 'Hello world!';
 }
 
-var john = Object.create(person);
-john.firstname = 'John';
-john.lastname = 'Doe';
+util.inherits(Greetr, EventEmitter);
 
-var jane = Object.create(person);
-jane.firstname = 'Jane';
-jane.lastname = 'Doe';
+Greetr.prototype.greet = function() {
+  console.log(this.greeting);
+  this.emit('greet');
+}
 
-console.log(john.greet());
-console.log(jane.greet());
+var greeter1 = new Greetr();
+
+greeter1.on('greet', function() {
+  console.log('Someone greeted');
+});
+
+greeter1.greet();
+
+
+//practice with Object.create
+// var person = {
+//   firstname: '',
+//   lastname: '',
+//   greet: function() {
+//     return this.firstname + ' ' + this.lastname;
+//   }
+// }
+
+// var john = Object.create(person);
+// john.firstname = 'John';
+// john.lastname = 'Doe';
+
+// var jane = Object.create(person);
+// jane.firstname = 'Jane';
+// jane.lastname = 'Doe';
+
+// console.log(john.greet());
+// console.log(jane.greet());
 
 //practice with emitters
 // var Emitter = require('events');

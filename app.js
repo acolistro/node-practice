@@ -1,20 +1,44 @@
+//ES6 classes v prototypes
+'use strict';
+
+class Person {
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+
+  greet() {
+    console.log('Hello ' + this.firstname + ' ' + this.lastname);
+  }
+}
+
+var john = new Person('John', 'Doe');
+john.greet();
+
+var jane = new Person('Jane', 'Doe');
+jane.greet();
+
+console.log(john.__proto__);
+console.log(jane.__proto__);
+console.log(john.__proto__ === jane.__proto__);
+
 //Inheriting from event emitter
-var EventEmitter = require('events');
-var util = require('util');
+// var EventEmitter = require('events');
+// var util = require('util');
 
-function Greetr() {
-  EventEmitter.call(this);
-  this.greeting = 'Hello world!';
-}
+// function Greetr() {
+//   EventEmitter.call(this);
+//   this.greeting = 'Hello world!';
+// }
 
-util.inherits(Greetr, EventEmitter);
+// util.inherits(Greetr, EventEmitter);
 
-Greetr.prototype.greet = function() {
-  console.log(this.greeting);
-  this.emit('greet');
-}
+// Greetr.prototype.greet = function() {
+//   console.log(this.greeting);
+//   this.emit('greet');
+// }
 
-var greeter1 = new Greetr();
+// var greeter1 = new Greetr();
 
 greeter1.on('greet', function() {
   console.log('Someone greeted');

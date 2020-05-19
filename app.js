@@ -1,8 +1,15 @@
-//exports v module.exports
-var greet = require('./greet1');
-var greet2 = require('./greet2');
+//utilities feature core module
+var util = require('util');
 
-greet2.greet();
+var name = 'Lester';
+var greeting = util.format('Hello, %s', name);
+util.log(greeting);
+
+//exports v module.exports
+// var greet = require('./greet1');
+// var greet2 = require('./greet2');
+
+// greet2.greet();
 
 //Playing with the require function and objects
 // var greet = require('./greet1');

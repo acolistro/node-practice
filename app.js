@@ -1,11 +1,23 @@
+//practice with .call and .apply
+var obj = {
+  name: 'John Doe',
+  greet: function() {
+    console.log(`Hello ${ this.name }`);
+  }
+}
+
+obj.greet();
+obj.greet.call({ name: 'Jane Doe'});
+obj.greet.apply({ name: 'Jane Doe'});
+
 //practice with template literals
-var name = 'John Doe';
+// var name = 'John Doe';
 
-var greet = "Hello " + name;
-var greet2 = `Hello ${ name }`;
+// var greet = "Hello " + name;
+// var greet2 = `Hello ${ name }`;
 
-console.log(greet);
-console.log(greet2);
+// console.log(greet);
+// console.log(greet2);
 
 //practice with constructors and superconstructors
 // var EventEmitter = require('events');

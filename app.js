@@ -13,6 +13,10 @@ greet3.greeting = 'Changed hello world';
 var greet3b = require('./greet3');
 greet3b.greet();
 
+var Greet4 = require('./greet4');
+var grtr = new Greet4();
+grtr.greet();
+
 
 //practice with require() function
 // var greet = require('./greet');

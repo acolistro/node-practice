@@ -1,9 +1,38 @@
-//utilities feature core module
-var util = require('util');
+//object properties and methods
+var obj = {
+  greet: 'Hello'
+}
 
-var name = 'Lester';
-var greeting = util.format('Hello, %s', name);
-util.log(greeting);
+console.log(obj.greet);
+console.log(obj['greet']);
+var prop = 'greet';
+console.log(obj[prop]);
+
+//functions and arrays
+var arr = [];
+
+arr.push(function() {
+  console.log('Hello world 1');
+});
+
+arr.push(function() {
+  console.log('Hello world 2');
+});
+
+arr.push(function() {
+  console.log('Hello world 3');
+});
+
+arr.forEach(function(item) {
+  item();
+});
+
+//utilities feature core module
+// var util = require('util');
+
+// var name = 'Lester';
+// var greeting = util.format('Hello, %s', name);
+// util.log(greeting);
 
 //exports v module.exports
 // var greet = require('./greet1');

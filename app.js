@@ -1,31 +1,48 @@
-//object properties and methods
-var obj = {
-  greet: 'Hello'
-}
+var Emitter = require('./emitter');
 
-console.log(obj.greet);
-console.log(obj['greet']);
-var prop = 'greet';
-console.log(obj[prop]);
+var emtr = new Emitter();
+
+emtr.on('greet', function() {
+  console.log('Somewhere, someone said hello.');
+});
+
+emtr.on('greet', function() {
+  console.log('A greeting happened.');
+});
+
+console.log('Hello!');
+emtr.emit('greet');
+
+
+
+//object properties and methods
+// var obj = {
+//   greet: 'Hello'
+// }
+
+// console.log(obj.greet);
+// console.log(obj['greet']);
+// var prop = 'greet';
+// console.log(obj[prop]);
 
 //functions and arrays
-var arr = [];
+// var arr = [];
 
-arr.push(function() {
-  console.log('Hello world 1');
-});
+// arr.push(function() {
+//   console.log('Hello world 1');
+// });
 
-arr.push(function() {
-  console.log('Hello world 2');
-});
+// arr.push(function() {
+//   console.log('Hello world 2');
+// });
 
-arr.push(function() {
-  console.log('Hello world 3');
-});
+// arr.push(function() {
+//   console.log('Hello world 3');
+// });
 
-arr.forEach(function(item) {
-  item();
-});
+// arr.forEach(function(item) {
+//   item();
+// });
 
 //utilities feature core module
 // var util = require('util');
